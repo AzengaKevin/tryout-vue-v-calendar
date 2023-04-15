@@ -1,5 +1,15 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import "@/style.css"
+import { setupCalendar, Calendar, DatePicker } from "v-calendar";
+import { createApp } from "vue";
+import "v-calendar/style.css";
+import App from "@/App.vue";
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+app.use(setupCalendar, {})
+
+// Use the components
+app.component('VCalendar', Calendar)
+app.component('VDatePicker', DatePicker)
+
+app.mount('#app');
